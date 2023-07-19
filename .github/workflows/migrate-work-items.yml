@@ -7,14 +7,6 @@ on:
         description: 'ado-org'
         required: true
         default: 'HCLGurukul'
-      ADO_PAT:
-        description: 'ado-PAT'
-        required: true
-        default: 'qar43ecqvurygbvc6ecagaduzhaeaw2jjudjwtophqfq6acrwd4a'
-      PRIVATE_KEY:
-        description: 'private-key'
-        required: true
-        default: '3yJMx/rQ5/nuTXjQuLWJV6B+xPcWvpTmWVwuBXaUPrU='
       ado-project:
         description: 'ado-project'
         required: true
@@ -68,7 +60,7 @@ jobs:
         with: 
           app_id: 363245
           installation_id: 39795972
-          private_key: ${{ github.event.inputs.PRIVATE_KEY }}
+          private_key: ${3yJMx/rQ5/nuTXjQuLWJV6B+xPcWvpTmWVwuBXaUPrU=}
       
       - name: run migration
         shell: pwsh
@@ -97,5 +89,5 @@ jobs:
             $gh_add_ado_comments=$true
           }
           
-          ./ado_workitems_to_github_issues.ps1 -ado_pat "${{ github.event.inputs.ADO_PAT }}" -ado_org "${{ github.event.inputs.ado-org }}" -ado_project "${{ github.event.inputs.ado-project }}" -ado_area_path "${{ github.event.inputs.ado_area_path }}" -ado_migrate_closed_workitems $ado_migrate_closed_workitems -ado_production_run $ado_production_run -gh_pat "${{ steps.get_installation_token.outputs.token }}" -gh_org "${{ github.event.inputs.gh-org }}" -gh_repo "${{ github.event.inputs.gh-repo }}" -gh_update_assigned_to $gh_update_assigned_to -gh_assigned_to_user_suffix "${{ github.event.inputs.gh_assigned_to_user_suffix }}" -gh_add_ado_comments $gh_add_ado_comments
+          ./ado_workitems_to_github_issues.ps1 -ado_pat "${qar43ecqvurygbvc6ecagaduzhaeaw2jjudjwtophqfq6acrwd4a}" -ado_org "${{ github.event.inputs.ado-org }}" -ado_project "${{ github.event.inputs.ado-project }}" -ado_area_path "${{ github.event.inputs.ado_area_path }}" -ado_migrate_closed_workitems $ado_migrate_closed_workitems -ado_production_run $ado_production_run -gh_pat "${{ steps.get_installation_token.outputs.token }}" -gh_org "${{ github.event.inputs.gh-org }}" -gh_repo "${{ github.event.inputs.gh-repo }}" -gh_update_assigned_to $gh_update_assigned_to -gh_assigned_to_user_suffix "${{ github.event.inputs.gh_assigned_to_user_suffix }}" -gh_add_ado_comments $gh_add_ado_comments
           
