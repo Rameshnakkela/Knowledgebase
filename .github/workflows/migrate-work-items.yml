@@ -14,7 +14,7 @@ on:
       ado_area_path:
         description: 'ADO area path to migrate - uses the UNDER operator'
         required: true
-        default: 'Knowledgebase'
+        default: 'Knowledgebase/Knowledgebase'
       ado_migrate_closed_workitems:
         description: 'Migrate closed work items'
         required: true
@@ -50,7 +50,7 @@ on:
 
 jobs:
   migrate:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@main
